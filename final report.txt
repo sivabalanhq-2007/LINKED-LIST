@@ -1,0 +1,50 @@
+TECHNICAL EVALUATION REPORT: IN-MEMORY DATABASE OPERATIONS IN C
+
+Course Unit: Fundamentals of Database Using C
+Application: Festival Shopping Management and Billing System
+Target Environment: Standard C (C99 / GCC Compiler)
+
+
+1. EXECUTIVE SUMMARY
+
+This report presents an architectural and operational evaluation of a C-based in-memory database system designed to solve the dynamic inventory, event handling, and checkout challenges described in the Festival Shopping Challenge. To eliminate the fixed-capacity limitations and high reallocation costs associated with static arrays, the system implements a singly linked list as its core database engine. The solution supports full runtime CRUD capabilities—record creation, linear querying, in-place updates, and dynamic deletions—alongside an integrated pricing engine that automatically computes itemized line totals and applies the mandatory 30% Festival Bonanza discount.
+
+
+2. RELATIONAL DATA SCHEMA & NODE ARCHITECTURE
+
+The database schema is organized into two primary structures:
+
+• struct Item: Serves as the database record (tuple) with the following relational attributes:
+  - itemId (Integer): Primary key uniquely indexing each transaction record.
+  - friendName (String): Categorical key denoting the purchaser (Arjun, Priya, Kavin, Meena, Sanjay).
+  - itemName & brand (Strings): Product identifiers enabling specification tracking and substitutions.
+  - quantity (Integer) & price (Float): Quantitative numeric fields used for financial calculations.
+
+• struct Node: Serves as the relational storage block containing the Item struct payload and a self-referential pointer (*next) pointing to the next record on the heap. A single global pointer (*head) tracks the initial entry point of the list.
+
+
+3. SYSTEM MODULE IMPLEMENTATION
+
+The operational logic is decoupled into modular routines representing fundamental database operations:
+
+• Create / Insertion (insertItem):
+  Allocates a new node dynamically via malloc() on the heap, captures item metadata through buffered terminal input, and appends the new record to the list tail via linear pointer traversal. This handles additive shopping requests seamlessly (e.g., Priya adding a silk shawl).
+
+• Delete / Cancellation (deleteItem):
+  Accepts a targeted itemId, initializes two traversal pointers (temp and prev), and identifies the record via linear key matching. Upon discovery, it redirects pointers to bridge the predecessor and successor nodes, and invokes free() to deallocate memory immediately, preventing heap leakage. This satisfies dynamic cancellation needs (e.g., Arjun removing the Titan watch).
+
+• Update / Substitution (updateItem):
+  Searches for a record matching a specific itemId and overwrites its internal attributes (itemName, brand, quantity, price) in-place without altering list topology. This enables instant item substitutions (e.g., Kavin switching from a Bluetooth speaker to wireless earbuds, or Sanjay choosing an alternate television).
+
+• Read / Search & Reporting (searchItem & displayItems):
+  Provides targeted querying on the itemId primary key, outputting comprehensive field values upon a match. The display routine scans the list sequentially to output an itemized inventory table across all participating shoppers.
+
+• Settlement & Aggregation Engine (generateBill):
+  Iterates across all active records, computes individual line totals (quantity * price), and computes the cumulative gross subtotal. It then evaluates the 30% Festival Shopping Bonanza coupon (subTotal * 0.30) to output the final net payable balance.
+
+
+4. COMPLEXITY METRICS & RESOURCE EFFICIENCY
+
+• Time Complexity: Record insertion at the tail, key-based searches, updates, and node deletions execute in O(N) worst-case time, where N represents the active count of items.
+• Auxiliary Space Complexity: O(1) auxiliary space overhead across all operational routines.
+• Memory Efficiency: O(N) dynamic heap allocation guarantees zero static array pre-allocation waste, ensuring the application remains lightweight, stable, and responsive.

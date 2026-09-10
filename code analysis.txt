@@ -1,0 +1,53 @@
+LABORATORY REPORT: IMPLEMENTATION OF IN-MEMORY DATABASE OPERATIONS IN C
+
+Subject: Fundamentals of Database Using C
+Module: Singly Linked List Data Model for Festival Shopping Challenge
+Target System: In-Memory Relational Inventory & Billing Simulator
+
+
+1. SYSTEM OVERVIEW
+
+The program implements an in-memory database system in standard C to manage transactional inventory operations for the Festival Shopping Challenge. By employing a dynamic singly linked list as the foundational data structure, the application mimics core Relational Database Management System (RDBMS) capabilities—specifically Create, Read, Update, and Delete (CRUD) operations—alongside automated discount calculations and bill generation. Dynamic memory allocation via malloc and free ensures that data records expand and contract at runtime without the capacity limitations or memory overhead of fixed-size arrays.
+
+
+2. CORE DATA STRUCTURE DESIGN
+
+The data schema is structured using two primary entities:
+
+• struct Item: Represents a single inventory tuple containing the relational attributes:
+  - itemId (Integer): Primary key identifying each transaction record uniquely.
+  - friendName (String): Attribute recording the shopper associated with the item.
+  - itemName & brand (Strings): Descriptive attributes indicating the item and manufacturer.
+  - quantity (Integer) & price (Float): Quantitative variables required for cost computation.
+
+• struct Node: Represents the linked list node housing the Item structure payload along with a self-referential pointer (*next) pointing to the successor node in the heap. A global pointer (*head) tracks the initial node in memory.
+
+
+3. FUNCTIONAL MODULE ANALYSIS
+
+The source code is organized into dedicated functional routines executing distinct database commands:
+
+• Record Insertion (insertItem):
+  Allocates a new node dynamically on the heap, populates its attributes via standard user input, initializes its next pointer to NULL, and appends it to the tail of the list via linear traversal. This ensures non-destructive, sequential data capture as friends register their shopping demands.
+
+• Record Deletion (deleteItem):
+  Executes an in-memory record removal by searching for a targeted itemId. The routine traverses the list with two tracking pointers (temp and prev). When a key match is found, pointer redirection unlinks the node, and the free() system function releases the allocated heap space, preventing memory leaks. This simulates dynamic event cancellations (e.g., Arjun removing the wrist watch).
+
+• Record Mutation (updateItem):
+  Performs an in-place attribute update for an existing record matching a specific itemId. This routine allows modification of item descriptions, brand substitutions, and quantity adjustments without modifying the surrounding linked architecture, modeling real-time scenario updates (e.g., Kavin replacing the Bluetooth speaker with earbuds).
+
+• Search & Data Retrieval (searchItem & displayItems):
+  Provides linear search query functionality by iterating from head to tail until a target primary key is validated, displaying the matching tuple. The display function reads and streams all unbilled active records in a tabular format.
+
+• Settlement Engine & Discount Processing (generateBill):
+  Iterates across the active list, computing individual line costs (quantity * price) and aggregating them into a gross sub-total. It subsequently applies a mandatory 30% Festival Bonanza Discount factor (subTotal * 0.30) to compute the final net payable balance, completing the business workflow.
+
+
+4. EXECUTION FLOW & COMPLEXITY ANALYSIS
+
+The main driver initializes an interactive, menu-driven command loop utilizing a switch-case control structure. Time and space complexities across operations remain efficient:
+• Insertion (Append to Tail): O(N) time, O(1) auxiliary space.
+• Search / Update / Delete: O(N) worst-case linear search time, O(1) space.
+• Memory Efficiency: O(N) overall space, dynamically scaling strictly to the active count of items.
+
+The architecture provides a robust, low-footprint in-memory solution fulfilling all data manipulation and settlement requirements of the case study.

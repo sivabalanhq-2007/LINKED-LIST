@@ -1,0 +1,52 @@
+SOLUTION REPORT: FESTIVAL SHOPPING CHALLENGE OPTIMIZATION
+
+Course Unit: Fundamentals of Database Using C
+Application: Multi-User Retail Procurement & In-Memory Database Engine
+Target Environment: Standard C (GCC Compiler)
+
+
+1. PROBLEM OVERVIEW & OBJECTIVE
+
+The Festival Shopping Bonanza at Galaxy Mega Mall presents a multi-agent procurement challenge involving five shoppers: Arjun, Priya, Kavin, Meena, and Sanjay. To qualify for an additional 30% discount coupon, the group must fulfill all original and updated shopping requests in the minimum possible time while avoiding duplicate purchases, selecting optimal promotional deals, and minimizing wait times at checkout. This solution implements an in-memory relational database system in C using a dynamic singly linked list to execute real-time modifications, consolidate redundant purchases, apply promotional pricing logic, and balance billing operations.
+
+
+2. SYSTEM ARCHITECTURE & DATA STRUCTURE DESIGN
+
+• Record Schema (struct Item):
+  - itemId (Integer): Primary key identifying each transaction record uniquely.
+  - friendName (String): Identifies the original shopper.
+  - itemName & brand (Strings): Product identifiers enabling specification tracking and alternative substitutions.
+  - quantity (Integer) & price (Float): Quantitative variables required for real-time cost aggregation.
+
+• Storage Node (struct Node):
+  - Contains an Item struct instance as payload and a self-referential pointer (*next) pointing to the successor record on the heap.
+  - A global pointer (*head) manages the active dataset, enabling dynamic heap-based record management that eliminates fixed array buffer overflows and minimizes memory consumption.
+
+
+3. RESOLUTION OF DYNAMIC REAL-TIME EVENTS
+
+The in-memory database system handles dynamic real-time shopping situations through atomic CRUD operations:
+
+• Cancellation (DELETE):
+  When Arjun's father cancels the Titan Wrist Watch, deleteItem() locates the record by primary key, redirects the predecessor pointer to temp->next, and calls free(temp), preventing memory leaks and avoiding unnecessary expenditure.
+
+• Insertion (CREATE):
+  When Priya's mother requests an additional Silk Shawl, insertItem() dynamically allocates a new heap node, captures the item attributes, and appends the tuple to the linked list.
+
+• Replacement & Substitution (UPDATE):
+  When Kavin's brother asks to replace the Bluetooth Speaker with Wireless Earbuds within the same budget, updateItem() modifies the itemName and brand fields in-place without structural pointer rewiring. Similarly, when Sanjay's television model is unavailable, the function updates the record with an alternative model matching technical specifications and budget.
+
+• Quantity Increment (UPDATE):
+  When Meena receives a request for two additional flower vases, the update routine increments the quantity attribute from 1 to 3, recalculating line costs automatically.
+
+
+4. CONSOLIDATION, PROMOTIONS & BILLING OPTIMIZATION
+
+• Deduplication & Master Aggregation:
+  Items appearing across multiple lists (decorative diyas, gift wrapping sheets, chocolates, dry fruit boxes) are consolidated by scanning the linked list. Combining duplicate entries into single bulk orders prevents redundant aisles trips, saves floor transit time, and allows the group to exploit bulk packaging tiers.
+
+• Promotional Evaluation & 30% Festival Bonanza Settlement:
+  The billing module iterates through the consolidated records, calculates individual line totals (quantity * price), and computes the gross subtotal. Once all requirements are fulfilled in the shortest time, generateBill() applies the 30% Festival Shopping Bonanza discount factor (subTotal * 0.30), outputting the final net balance.
+
+• Checkout Load Balancing:
+  To minimize queue delay, clothing items are routed to the dedicated Clothing Counter, while remaining items are processed via the Express Multi-Server Zone. Distributing transactions to the earliest available register prevents head-of-line blocking and ensures the shortest total processing time to secure the additional festival discount.

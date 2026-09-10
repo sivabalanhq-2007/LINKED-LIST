@@ -1,0 +1,114 @@
+WORKSHOP CASE STUDY – 2
+SHOPPING MALL – FESTIVAL SHOPPING CHALLENGE
+
+1. BACKGROUND
+
+With Deepavali just two weeks away, Galaxy Mega Mall, Salem, has announced its "Festival Shopping Bonanza", offering attractive discounts on clothing, footwear, home décor, gift items, sweets, kitchen essentials, and electronic accessories. Customers who complete their purchases within the shortest time while satisfying all their shopping requirements will receive an additional 30% festival discount coupon applicable to their final bill.
+
+Five friends—Arjun, Priya, Kavin, Meena, and Sanjay—have volunteered to purchase festival essentials for their families. To save time, they decide to shop together by dividing the responsibilities among themselves. Before entering the mall, each person prepares a shopping list containing the required items, preferred brand, size (where applicable), quantity, and budget.
+
+
+2. SHOPPING LISTS
+
+Before entering the mall, each of the five friends prepares a shopping list containing the required items, preferred brands (where applicable), quantities, sizes, and budget:
+
+• Arjun's Shopping List:
+  - Men's Formal Shirt – Size L (Peter England)
+  - Men's Jeans – Size 34 (Levi's)
+  - Leather Belt – Size 34 (Woodland)
+  - Sports Shoes – Size 9 (Puma)
+  - Wallet – Wildcraft
+  - Cotton Socks – 3 pairs
+  - Wrist Watch – Titan
+  - Perfume – Fogg (100 ml)
+  - Gift Wrapping Paper – 5 sheets
+  - Dry Fruit Gift Box – 1 kg
+
+• Priya's Shopping List:
+  - Women's Silk Saree – Peacock Blue
+  - Designer Blouse Material – 1 set
+  - Matching Bangles – Size 2.6
+  - Earrings – 1 pair
+  - Handbag – Lavie
+  - Women's Sandals – Size 6 (Bata)
+  - Decorative Diyas – 12 pieces
+  - LED Decorative Lights – 2 sets
+  - Chocolates Gift Pack – 5 boxes
+  - Greeting Cards – 10 numbers
+
+• Kavin's Shopping List:
+  - Men's Kurta – Size XL
+  - Cotton Pyjama – Size XL
+  - Casual Shoes – Size 10
+  - Bluetooth Speaker – boAt
+  - Mobile Power Bank – 20,000 mAh
+  - Decorative Lantern – 2 numbers
+  - Gift Covers – 20 numbers
+  - Scented Candles – 6 pieces
+  - Chocolate Box – 2 packs
+  - Titan Wrist Watch – 1
+
+• Meena's Shopping List:
+  - Curtain Set – 2 pairs
+  - Cushion Covers – 6 numbers
+  - Door Mat – 2 numbers
+  - Dinner Set – 1
+  - Pressure Cooker – 5 L (Prestige)
+  - Non-stick Frying Pan – 1
+  - Stainless Steel Water Bottles – 4 numbers
+  - Decorative Flower Vase – 1
+  - LED String Lights – 1 set
+  - Dry Fruit Gift Box – 500 g
+
+• Sanjay's Shopping List:
+  - Smart LED TV – 43 inches (Samsung)
+  - Wireless Headphones – Sony
+  - USB Pendrive – 64 GB (SanDisk)
+  - Mobile Charger – Samsung 25 W
+  - Extension Board – 1
+  - Festival Sweet Box – 2 kg
+  - Chocolates Gift Pack – 3 boxes
+  - Decorative Diyas – 24 pieces
+  - Gift Wrapping Paper – 10 sheets
+  - Bluetooth Speaker – JBL
+
+
+3. SITUATION DURING SHOPPING
+
+As soon as the festival shopping begins, the five friends split up and proceed to different sections of the mall. After a few minutes, several unexpected situations arise:
+
+• Arjun's father calls and asks him to cancel the purchase of the wrist watch, as it has already been purchased online.
+• Priya's mother requests her to add a silk shawl to the shopping list.
+• Kavin's brother asks him to replace the Bluetooth Speaker with Wireless Earbuds if they are available within the same budget.
+• Meena receives a message asking her to purchase two additional decorative flower vases for relatives.
+• Sanjay is informed that the selected television model is unavailable and must choose another model with similar specifications and price.
+• As they continue shopping, they notice that several items such as gift wrapping paper, decorative lights, chocolate gift packs, dry fruit gift boxes, and decorative diyas appear in more than one shopping list. Purchasing these items separately would waste both time and money. The friends decide to coordinate their purchases to avoid duplicate shopping while ensuring that the required quantities are purchased for everyone.
+• Many products are displayed in multiple locations across the mall with different promotional offers. Some brands provide Buy One Get One Free, while others offer festival combo discounts. The friends must compare the available offers before making their final purchase decisions.
+• After completing their shopping, they proceed to the billing area. The mall provides two types of billing facilities:
+  1. Festival Clothing Billing Counters: Customers are served one after another in the order they arrive.
+  2. Festival Express Billing Zone: Multiple billing counters continuously serve customers. As soon as one counter completes a customer's billing, the next waiting customer is directed to the next available counter, ensuring uninterrupted service throughout the day.
+• The friends must decide how to distribute themselves among the billing counters to complete the billing process in the shortest possible time and qualify for the additional festival discount.
+
+
+4. YOUR TASK
+
+Design an efficient shopping strategy that enables the five friends to complete their festival shopping in the minimum possible time while ensuring that:
+• Every required item is purchased.
+• Items can be added, removed, or replaced whenever new requests arrive.
+• The best available offer or promotional price is selected.
+• Duplicate purchases are avoided by coordinating among the friends.
+• Alternative brands or products are selected whenever the preferred item is unavailable.
+• Time spent at the billing counters is minimized.
+• The group successfully qualifies for the Festival Shopping Bonanza Discount.
+
+
+5. EXPECTED DELIVERABLES
+
+Your team should prepare:
+1. A flowchart representing the complete shopping process.
+2. A step-by-step table showing Current State → Action → Updated State.
+3. An algorithm (or pseudocode) describing your proposed solution.
+4. The data structure(s) that you would use at each stage of the process.
+5. Justification explaining why each chosen data structure is more suitable than other alternatives.
+
+[Note: There is no single correct solution. Multiple approaches are possible. Evaluation will be based on the efficiency of your process, clarity of representation, appropriate choice of data structure(s), and the justification provided for your design decisions.]
